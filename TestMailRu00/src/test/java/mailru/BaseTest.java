@@ -1,13 +1,13 @@
-package mail;
+package mailru;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import properties.OverridenChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.alexeev.Properties.mainProperties;
+import static properties.Properties.mainProperties;
 
 /**
  * Базовый класс для запуска тестов. Здесь инициализируется драйвер веб браузера, указывается поведение перед
@@ -19,7 +19,7 @@ public class BaseTest {
     /**
      * Основной веб драйвер для всех классов потомков
      *
-     * @author Степан Алексеев
+     * @author Алексеев Степан
      */
     public WebDriver chromedriver;
 
@@ -27,14 +27,14 @@ public class BaseTest {
      * Метод для запуска перед каждым тестом. Назначает откуда брать драйвер браузера, задаёт начальное состояние
      * браузера, устанавливает таймауты.
      *
-     * @author Степан Алексеев
+     * @author Алексеев Степан
      */
     @BeforeEach
     public void beforeEach() {
 
         System.setProperty(mainProperties.browser(), System.getenv(mainProperties.driver()));
-        chromedriver = new ChromeDriver();
-       // chromedriver = new OverridenChromeDriver();
+       // chromedriver = new ChromeDriver();
+        chromedriver = new OverridenChromeDriver();
         chromedriver.manage().deleteAllCookies();
         chromedriver.manage().window().maximize();
         chromedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -46,7 +46,7 @@ public class BaseTest {
      * Метод запускается после каждого теста.
      * Закрывает браузер и завершает тест.
      *
-     * @author Степан Алексеев
+     * @author Алексеев Степан
      */
     @AfterEach
     public void closeBellTest() {

@@ -1,4 +1,4 @@
-package org.alexeev;
+package properties;
 
 import org.aeonbits.owner.ConfigFactory;
 

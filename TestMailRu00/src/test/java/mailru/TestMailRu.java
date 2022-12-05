@@ -1,16 +1,20 @@
-package mail;
+package mailru;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.alexeev.Properties.mainProperties;
+import static properties.Properties.mainProperties;
 
 /**
- * Класс для реализации тестирования сайта Mail.ru.
+ * Класс для реализации тестирования сайта Mail.ru В соответствии с описанием в файле Task в корне проекта.
+ * Драйвер браузера хром берётся по адресу, прописанному в переменной среды CHROME_DRIVER. Это задано в проперти файле.
  */
 public class TestMailRu extends BaseTest {
-
+    /**
+     *
+     * @throws InterruptedException
+     */
     @Test
     public void checkMailSending() throws InterruptedException {
         chromedriver.get(mainProperties.baseUrl());
@@ -22,11 +26,10 @@ public class TestMailRu extends BaseTest {
         mrapo.enterMailAddressAndPressEnter();
         mrapo.enterPasswordAndPressEnter();
         MailRuMailBoxPageObject mrmbpo = new MailRuMailBoxPageObject(chromedriver);
-        //Thread.sleep(3000000);
         mrmbpo.pressNewEmailButton();
         MailRuMailBoxComposingEmailPageObject mrmbcepo = new MailRuMailBoxComposingEmailPageObject(chromedriver);
-        mrmbcepo.composeAnEmail();
-        Thread.sleep(3000000);
+        mrmbcepo.composeAndSendAnEmail();
+       // Thread.sleep(3000000);
 
     }
 }
