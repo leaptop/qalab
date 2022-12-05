@@ -15,8 +15,6 @@ public class TestMailRu extends BaseTest {
     public void checkMailSending() throws InterruptedException {
         chromedriver.get(mainProperties.baseUrl());
         MailRuMainPageObject mmpo = new MailRuMainPageObject(chromedriver);
-       // mmpo.pressEnterButton();
-        // mmpo.inputMailAndPass();
         mmpo.pressMailButton();
         ArrayList<String> newTab = new ArrayList<>(chromedriver.getWindowHandles());
         chromedriver.switchTo().window(newTab.get(1));
@@ -25,7 +23,9 @@ public class TestMailRu extends BaseTest {
         mrapo.enterPasswordAndPressEnter();
         MailRuMailBoxPageObject mrmbpo = new MailRuMailBoxPageObject(chromedriver);
         //Thread.sleep(3000000);
-        mrmbpo.pressNewLetterButton();
+        mrmbpo.pressNewEmailButton();
+        MailRuMailBoxComposingEmailPageObject mrmbcepo = new MailRuMailBoxComposingEmailPageObject(chromedriver);
+        mrmbcepo.composeAnEmail();
         Thread.sleep(3000000);
 
     }
