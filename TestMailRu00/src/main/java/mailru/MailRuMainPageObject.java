@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Класс для страницы, откырваемой по адресу https://mail.ru/
+ * Класс для страницы, откырваемой по адресу https://mail.ru/.
+ *
+ * По идее можно также создать базовый класс для всех остальных классов мейлру, т.к. сверху есть единое для
+ * всех страниц меню с кнопками "Mail.ru Почта Облако Одноклассники ...".
  */
 public class MailRuMainPageObject {
     WebDriver chromedriver;

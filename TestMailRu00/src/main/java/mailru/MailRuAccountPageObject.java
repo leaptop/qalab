@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import static properties.Properties.mainProperties;
+import static helpers.Properties.mainProperties;
 
 /**
  * Класс, реализующий паттерн Page Object для страницы с вводом логина и пароля почты.
@@ -23,7 +23,7 @@ public class MailRuAccountPageObject {
     }
 
     /**
-     * Вводим пароль. Жмём Enter.
+     * Вводим пароль в окне входа в почту. Жмём Enter.
      */
     @Step
     public void enterPasswordAndPressEnter() {
@@ -33,7 +33,7 @@ public class MailRuAccountPageObject {
     }
 
     /**
-     * Вводим имя пользователя. Жмём Enter
+     * Вводим имя пользователя в окне входа в почту. Жмём Enter
      */
     @Step
     public void enterMailAddressAndPressEnter() {

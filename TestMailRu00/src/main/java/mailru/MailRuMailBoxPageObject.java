@@ -5,7 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Класс для базовой страницы почты (с кнопками перехода по папкам "отправленные", "спам" и т.п.).
+ * Класс для страницы почты, в которую залогинились
+ * (с кнопками перехода по папкам "отправленные", "спам" и т.п.).
  */
 public class MailRuMailBoxPageObject {
     WebDriver chromedriver;

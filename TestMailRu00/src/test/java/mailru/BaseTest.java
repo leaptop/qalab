@@ -3,11 +3,11 @@ package mailru;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import properties.OverridenChromeDriver;
+import helpers.OverridenChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static properties.Properties.mainProperties;
+import static helpers.Properties.mainProperties;
 
 /**
  * Базовый класс для запуска тестов. Здесь инициализируется драйвер веб браузера, указывается поведение перед
@@ -17,7 +17,8 @@ import static properties.Properties.mainProperties;
  */
 public class BaseTest {
     /**
-     * Основной веб драйвер для всех классов потомков
+     * Основной веб драйвер для всех классов потомков. Вообще его можно сделать статическим, чтобы каждый раз
+     * не инициализировать.
      *
      * @author Алексеев Степан
      */
@@ -26,14 +27,16 @@ public class BaseTest {
     /**
      * Метод для запуска перед каждым тестом. Назначает откуда брать драйвер браузера, задаёт начальное состояние
      * браузера, устанавливает таймауты.
+     * <p>
+     * Можно использовать обычный ChromeDriver();, я же поставил цель увидеть скриншоты на каждом действии
+     * браузера, поэтому использую OverridenChromeDriver();
      *
      * @author Алексеев Степан
      */
     @BeforeEach
     public void beforeEach() {
-
         System.setProperty(mainProperties.browser(), System.getenv(mainProperties.driver()));
-       // chromedriver = new ChromeDriver();
+        // chromedriver = new ChromeDriver();
         chromedriver = new OverridenChromeDriver();
         chromedriver.manage().deleteAllCookies();
         chromedriver.manage().window().maximize();
@@ -45,6 +48,7 @@ public class BaseTest {
     /**
      * Метод запускается после каждого теста.
      * Закрывает браузер и завершает тест.
+     * Также в конце можно чистить куки.
      *
      * @author Алексеев Степан
      */

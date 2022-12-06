@@ -1,4 +1,4 @@
-package properties;
+package helpers;
 
 import org.aeonbits.owner.ConfigFactory;
 
@@ -7,7 +7,7 @@ import org.aeonbits.owner.ConfigFactory;
  */
 public class Properties {
     /**
-     * Создаём конфигурационный класс на основе интерфейса MainProperties для доступа к переменным из файла .property.
+     * Создаём конфигурационный класс на основе интерфейса MainProperties для доступа к переменным из файла .properties.
      */
     public static MainProperties mainProperties = ConfigFactory.create(MainProperties.class);
 }
